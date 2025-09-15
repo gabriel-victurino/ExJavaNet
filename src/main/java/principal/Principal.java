@@ -8,8 +8,9 @@ public class Principal {
 
     public static void main(String[] args) {
         try {
-            String site = JOptionPane.showInputDialog("Digite um site para ser pesquisado.");
-            Socket sock = new Socket(site,80);
+            String site = JOptionPane.showInputDialog("Digite o endereço para ser pesquisado.");
+            int porta = Integer.parseInt(JOptionPane.showInputDialog("Digite a porta: "));
+            Socket sock = new Socket(site,porta);
             PrintWriter out = new PrintWriter(sock.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             String linha = "";
